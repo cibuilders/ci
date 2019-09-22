@@ -9,8 +9,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: make
-          command: ./.circleci/make.sh
+          name: Prepare
+          command: ./.circleci/prepare.sh
+      - run:
+          name: env
+          command: ./.circleci/env.sh
       - run:
           name: ccache
           command: ./.circleci/ccache.sh
@@ -18,8 +21,8 @@ jobs:
           name: ninja
           command: ./.circleci/ninja.sh
       - run:
-          name: Prepare
-          command: ./.circleci/prepare.sh
+          name: make
+          command: ./.circleci/make.sh
       - run:
           name: Run build
           command: ./build.sh
