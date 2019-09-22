@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: make
+          command: ./.circleci/make.sh
+      - run:
           name: ccache
           command: ./.circleci/ccache.sh
       - run:
